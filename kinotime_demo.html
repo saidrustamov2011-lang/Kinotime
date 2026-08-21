@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KinoTime — Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090b10;color:#fff;font-family:Arial,sans-serif}header{padding:18px 7%;display:flex;justify-content:space-between;align-items:center;background:#0d1017;position:sticky;top:0;z-index:2}.logo{font-size:25px;font-weight:800}.logo span{color:#e50914}nav a{color:#aaa;text-decoration:none;margin-left:20px;font-size:14px}nav a:hover{color:#fff}.hero{padding:75px 7%;min-height:400px;display:flex;align-items:center;background:radial-gradient(circle at 85% 35%,#4b1118,#090b10 48%)}h1{font-size:50px;margin:0 0 15px}.hero p{max-width:520px;color:#b8bbc4;line-height:1.6}.btn,.search button{display:inline-block;background:#e50914;color:#fff;border:0;border-radius:8px;padding:13px 20px;font-weight:bold;text-decoration:none;cursor:pointer}.container{padding:35px 7%}.search{display:flex;gap:10px;margin-bottom:35px}.search input{flex:1;padding:14px;background:#11151d;border:1px solid #292e38;border-radius:8px;color:#fff;font-size:15px}.title{font-size:24px;margin:25px 0 18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:18px}.card{background:#11151d;border-radius:10px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px)}.poster{height:225px;display:flex;align-items:center;justify-content:center;font-size:55px;background:linear-gradient(135deg,#252a35,#10131a)}.info{padding:13px}.info h3{margin:0 0 6px;font-size:16px}.info p{margin:0;color:#858995;font-size:13px}.genre{padding:22px;text-align:center;font-size:18px}.empty{display:none;color:#888;margin:20px 0}footer{text-align:center;color:#666;padding:35px;border-top:1px solid #1b1f27;margin-top:35px}@media(max-width:650px){nav{display:none}h1{font-size:38px}.hero{padding:55px 7%}}
+</style></head>
+<body>
+<header><div class="logo">🎬 Kino<span>Time</span></div><nav><a href="#">Bosh sahifa</a><a href="#movies">Kinolar</a><a href="#genres">Janrlar</a><a href="#help">Yordam</a></nav></header>
+<section class="hero"><div><h1>Sevimli kinolaringiz<br>bir joyda.</h1><p>KinoTime — kinolarni tez va qulay topish uchun zamonaviy kino platformasi.</p><a class="btn" href="#movies">🎬 Kinolarni ko‘rish</a></div></section>
+<main class="container">
+<div class="search"><input id="search" placeholder="🔎 Kino nomini qidiring..."><button id="searchBtn">Qidirish</button></div>
+<h2 class="title" id="movies">🔥 Mashhur kinolar</h2><div class="grid" id="grid">
+<div class="card" data-name="Avatar"><div class="poster">🌌</div><div class="info"><h3>Avatar</h3><p>Fantastika • Drama</p></div></div>
+<div class="card" data-name="Interstellar"><div class="poster">🚀</div><div class="info"><h3>Interstellar</h3><p>Fantastika • Drama</p></div></div>
+<div class="card" data-name="The Batman"><div class="poster">🦇</div><div class="info"><h3>The Batman</h3><p>Jangari • Detektiv</p></div></div>
+<div class="card" data-name="Spider-Man"><div class="poster">🕷️</div><div class="info"><h3>Spider-Man</h3><p>Jangari • Fantastika</p></div></div>
+<div class="card" data-name="Titanic"><div class="poster">🚢</div><div class="info"><h3>Titanic</h3><p>Drama • Romantik</p></div></div></div>
+<div class="empty" id="empty">😕 Kino topilmadi.</div>
+<h2 class="title" id="genres" style="margin-top:45px">🎭 Janrlar</h2><div class="grid"><div class="card"><div class="genre">😂<br>Komediya</div></div><div class="card"><div class="genre">🔫<br>Jangari</div></div><div class="card"><div class="genre">👻<br>Qo‘rqinchli</div></div><div class="card"><div class="genre">🧙<br>Fantastika</div></div></div>
+</main><footer id="help">© 2026 KinoTime • Demo versiya</footer>
+<script>
+const input=document.getElementById('search'),cards=[...document.querySelectorAll('.card[data-name]')],empty=document.getElementById('empty');
+function filter(){let q=input.value.trim().toLowerCase(),shown=0;cards.forEach(c=>{let ok=c.dataset.name.toLowerCase().includes(q);c.style.display=ok?'block':'none';if(ok)shown++});empty.style.display=shown?'none':'block'}
+input.addEventListener('input',filter);document.getElementById('searchBtn').addEventListener('click',filter);
+</script></body></html>
